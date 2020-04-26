@@ -7,11 +7,7 @@ class ShopPage extends React.Component {
 
   constructor(props) {
     super(props)
-
     this.state = SHOP_DATA
-
-    console.log(this.state)
-
   }
 
   render() {
