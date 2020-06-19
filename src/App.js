@@ -12,10 +12,16 @@ import CheckoutPage from './pages/checkout/checkout.component.jsx'
 
 import Header from './components/header/header.component.jsx'
 import { selectCurrentUser } from './redux/user/user.selectors'
+import { checkUserSession } from './redux/user/user.actions'
 
 class App extends React.Component {
 
   unsubscribeFromAuth = null
+
+  componentDidMount() {
+    const { checkUserSession } = this.props
+    checkUserSession()
+  }
 
   componentWillUnmount() {
     this.unsubscribeFromAuth()
@@ -36,8 +42,12 @@ class App extends React.Component {
   }
 }
 
-const MapStateToProps = createStructuredSelector({
+const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 })
 
-export default connect(MapStateToProps)(App)
+const mapDispatchToProps = dispatch => ({
+  checkUserSession: () => dispatch(checkUserSession())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
