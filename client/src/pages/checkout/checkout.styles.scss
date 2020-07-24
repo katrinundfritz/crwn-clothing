@@ -6,6 +6,10 @@
   align-items: center;
   margin: 50px auto 0;
 
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  }
+
   .checkout-header {
     width: 100%;
     padding: 10px 0;
@@ -17,8 +21,12 @@
       text-transform: capitalize;
       width: 23%;
 
+      @media screen and (max-width: 800px) {
+        width: 22%;
+      }
+
       &:last-child {
-        width: 8%;
+        width: 12%;
       }
     }
   }
